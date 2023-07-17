@@ -1,6 +1,5 @@
 #![feature(associated_type_defaults)]
 
-
 #[derive(Debug, PartialEq)]
 pub enum NonInstantiable {}
 
@@ -19,10 +18,7 @@ impl borsh::BorshSerialize for NonInstantiable {
 pub trait Module {
     type CallMessage: std::fmt::Debug + borsh::BorshSerialize + borsh::BorshDeserialize = NonInstantiable;
 
-    fn call(
-        &mut self,
-        _message: Self::CallMessage,
-    ) -> Result<(), anyhow::Error> {
+    fn call(&mut self, _message: Self::CallMessage) -> Result<(), anyhow::Error> {
         unreachable!("call message is not instantiable")
     }
 }
@@ -31,20 +27,15 @@ pub struct MyModule {
     storage: Vec<u8>,
 }
 
-
 #[derive(Debug, PartialEq, borsh::BorshSerialize, borsh::BorshDeserialize)]
 pub struct MyCallMessage {
     data: Vec<u8>,
 }
 
-
 impl Module for MyModule {
     type CallMessage = MyCallMessage;
 
-    fn call(
-        &mut self,
-        message: Self::CallMessage,
-    ) -> Result<(), anyhow::Error> {
+    fn call(&mut self, message: Self::CallMessage) -> Result<(), anyhow::Error> {
         println!("MyModule::call({:?})", message);
         self.storage.extend(&message.data);
         Ok(())
@@ -63,6 +54,3 @@ fn test_call() {
 
     module.call(call_message).unwrap();
 }
-
-
-
