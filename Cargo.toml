@@ -1,5 +1,5 @@
 [package]
-name = "intelli-rust-demos"
+name = "intellij-rust-demos"
 version = "0.1.0"
 edition = "2021"
 
