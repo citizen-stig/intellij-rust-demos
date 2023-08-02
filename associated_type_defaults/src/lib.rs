@@ -29,7 +29,7 @@ pub struct MyModule {
 
 #[derive(Debug, PartialEq, borsh::BorshSerialize, borsh::BorshDeserialize)]
 pub struct MyCallMessage {
-    data: Vec<u8>,
+    pub data: Vec<u8>,
 }
 
 impl Module for MyModule {
@@ -52,5 +52,6 @@ fn test_call() {
         data: vec![1, 2, 3],
     };
 
+    // TODO: This problem reported here https://github.com/intellij-rust/intellij-rust/issues/10704
     module.call(call_message).unwrap();
 }

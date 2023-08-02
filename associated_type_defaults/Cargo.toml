@@ -1,0 +1,11 @@
+[package]
+name = "intellij-demos-associated-type-defaults"
+version = { workspace = true }
+authors = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+
+[dependencies]
+anyhow = { workspace = true }
+borsh = { workspace = true }
+

@@ -1,2 +1,3 @@
 /target
-/Cargo.lock
+/associated_type_defaults/Cargo.lock
+Cargo.lock
