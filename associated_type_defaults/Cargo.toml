@@ -1,9 +1,11 @@
 [package]
 name = "intellij-demos-associated-type-defaults"
+description = "Example for issue https://github.com/intellij-rust/intellij-rust/issues/10704"
 version = { workspace = true }
 authors = { workspace = true }
 edition = { workspace = true }
 license = { workspace = true }
+repository = { workspace = true }
 
 [dependencies]
 anyhow = { workspace = true }
